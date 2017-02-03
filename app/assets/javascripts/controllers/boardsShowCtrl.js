@@ -1,10 +1,7 @@
-Djello.controller('BoardsShowCtrl', ['$scope', 'board', 'lists', function($scope, board, lists) {
+Djello.controller('BoardsShowCtrl', ['$scope', 'board', 'lists', 'cards', function($scope, board, lists, cards) {
 
-  // boardsService.getBoard($stateParams.id);
   $scope.board = board;
   $scope.lists = lists;
-
-  console.log($scope.board)
-  console.log($scope.lists)
+  $scope.cards = cards;
 
 }])

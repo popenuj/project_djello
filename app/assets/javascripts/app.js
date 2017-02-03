@@ -31,6 +31,9 @@ Djello.config(function($stateProvider, $urlRouterProvider){
         },
         lists: function(listsService, $stateParams) {
           return listsService.getListsFromBoard($stateParams.id);
+        },
+        cards: function(lists, cardsService) {
+          return cardsService.getCardsFromLists(lists)
         }
       }
     })

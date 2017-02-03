@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :boardsusers, dependent: :destroy
   has_many :boards, through: :boardsusers
-
+  has_many :cardsusers, dependent: :destroy
+  has_many :cards, through: :cardsusers
 
 end

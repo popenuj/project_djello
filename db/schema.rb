@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203183208) do
+ActiveRecord::Schema.define(version: 20170203215752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20170203183208) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["board_id", "user_id"], name: "index_boardsusers_on_board_id_and_user_id", unique: true, using: :btree
+  end
+
+  create_table "cards", force: :cascade do |t|
+    t.integer  "list_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "priority"
+    t.date     "completed"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "lists", force: :cascade do |t|
