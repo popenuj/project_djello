@@ -13,13 +13,13 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
     for (var i = 0; i < lists.length; i++) {
       cardPromises.push(getCardsFromList(lists[i].id))
     }
-    return $q.all(cardPromises).then(function(cards) {
-      return cards
+    return $q.all(cardPromises).then(function() {
+      return _cards
     })
   }
 
   return {
     getCardsFromLists: getCardsFromLists
   }
-  
+
 }])
