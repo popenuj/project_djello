@@ -24,6 +24,14 @@ Djello.config(function($stateProvider, $urlRouterProvider){
     .state('show', {
       url: '/boards/:id',
       controller: 'BoardsShowCtrl',
-      templateUrl: '/templates/boards/show.html'
+      templateUrl: '/templates/boards/show.html',
+      resolve: {
+        board: function(boardsService, $stateParams) {
+          return boardsService.getBoard($stateParams.id);
+        },
+        lists: function(listsService, $stateParams) {
+          return listsService.getListsFromBoard($stateParams.id);
+        }
+      }
     })
 })

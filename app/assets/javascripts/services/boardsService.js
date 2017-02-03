@@ -1,13 +1,13 @@
 Djello.factory('boardsService', ['Restangular', function(Restangular) {
 
-  var board;
+  var _board;
 
   var getBoard = function(id) {
-    Restangular.one('boards', id).get()
-      .then(function(response) {
-        console.log(response)
-        // board = response.data
-      })
+    return Restangular.one('boards', id).get().then(function(response) {
+      _board = response;
+      console.log('board', _board)
+      return _board;
+    });
   }
 
   return {
