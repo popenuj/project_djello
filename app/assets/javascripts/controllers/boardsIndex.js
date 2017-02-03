@@ -1,4 +1,4 @@
-Djello.controller('boardsIndexCtrl', ['$scope', 'boards',
+Djello.controller('BoardsIndexCtrl', ['$scope', 'boards',
   function($scope, boards) {
     $scope.boards = boards
   }]

@@ -13,7 +13,7 @@ Djello.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
     .state('index', {
       url: '/boards',
-      controller: 'boardsIndexCtrl',
+      controller: 'BoardsIndexCtrl',
       templateUrl: '/templates/boards/index.html',
       resolve: {
         boards: function(Restangular) {
@@ -23,7 +23,7 @@ Djello.config(function($stateProvider, $urlRouterProvider){
     })
     .state('show', {
       url: '/boards/:id',
-      controller: 'boardsShowCtrl',
+      controller: 'BoardsShowCtrl',
       templateUrl: '/templates/boards/show.html'
     })
 })
