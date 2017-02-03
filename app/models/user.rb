@@ -4,4 +4,8 @@ class User < ApplicationRecord
 
   validates_presence_of :username, :first_name, :last_name
 
+  has_many :boardsusers, dependent: :destroy
+  has_many :boards, through: :boardsusers
+
+
 end
