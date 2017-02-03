@@ -1,5 +1,5 @@
-Djello.controller('boardsIndexCtrl', ['$scope',
-  function($scope) {
-    $scope.boards = "boards!"
+Djello.controller('boardsIndexCtrl', ['$scope', 'boards',
+  function($scope, boards) {
+    $scope.boards = boards
   }]
 )

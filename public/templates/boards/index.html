@@ -1,3 +1,6 @@
 <h1>boards index</h1>
-
-{{ boards }}
+<ul>
+  <li ng-repeat="board in boards">
+    <h3 ui-sref="show({id: board.id})">{{ board.title }}</h3>
+  </li>
+</ul>

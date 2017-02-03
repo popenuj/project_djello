@@ -14,9 +14,16 @@ Djello.config(function($stateProvider, $urlRouterProvider){
     .state('index', {
       url: '/boards',
       controller: 'boardsIndexCtrl',
-      templateUrl: '/templates/boards/index.html'
+      templateUrl: '/templates/boards/index.html',
+      resolve: {
+        boards: function(Restangular) {
+          return Restangular.all('boards').getList().$object;
+        }
+      }
     })
     .state('show', {
-      url: '/boards/:id'
+      url: '/boards/:id',
+      controller: 'boardsShowCtrl',
+      templateUrl: '/templates/boards/show.html'
     })
 })
