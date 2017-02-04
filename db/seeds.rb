@@ -2,6 +2,7 @@ User.destroy_all
 Board.destroy_all
 List.destroy_all
 Card.destroy_all
+
 NUM_USERS = 3
 BOARDS_PER_USER = 3
 LISTS_PER_BOARD = 3

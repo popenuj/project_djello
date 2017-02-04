@@ -16,8 +16,8 @@ Djello.config(function($stateProvider, $urlRouterProvider){
       controller: 'BoardsIndexCtrl',
       templateUrl: '/templates/boards/index.html',
       resolve: {
-        boards: function(Restangular) {
-          return Restangular.all('boards').getList().$object;
+        boards: function(boardsService) {
+          return boardsService.getBoards();
         }
       }
     })
@@ -33,7 +33,7 @@ Djello.config(function($stateProvider, $urlRouterProvider){
           return listsService.getListsFromBoard($stateParams.id);
         },
         cards: function(lists, cardsService) {
-          return cardsService.getCardsFromLists(lists)
+          return cardsService.getCardsFromLists(lists);
         }
       }
     })
