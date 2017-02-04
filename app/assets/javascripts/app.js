@@ -7,7 +7,8 @@ Djello.config(['RestangularProvider',
   }]
 )
 
-Djello.config(function($stateProvider, $urlRouterProvider){
+Djello.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+
   $urlRouterProvider.otherwise('/boards');
 
   $stateProvider
@@ -16,9 +17,9 @@ Djello.config(function($stateProvider, $urlRouterProvider){
       controller: 'BoardsIndexCtrl',
       templateUrl: '/templates/boards/index.html',
       resolve: {
-        boards: function(boardsService) {
+        boards: ['boardsService', function(boardsService) {
           return boardsService.getBoards();
-        }
+        }]
       }
     })
     .state('show', {
@@ -26,15 +27,15 @@ Djello.config(function($stateProvider, $urlRouterProvider){
       controller: 'BoardsShowCtrl',
       templateUrl: '/templates/boards/show.html',
       resolve: {
-        board: function(boardsService, $stateParams) {
+        board: ['boardsService', '$stateParams', function(boardsService, $stateParams) {
           return boardsService.getBoard($stateParams.id);
-        },
-        lists: function(listsService, $stateParams) {
+        }],
+        lists: ['listsService', '$stateParams', function(listsService, $stateParams) {
           return listsService.getListsFromBoard($stateParams.id);
-        },
-        cards: function(lists, cardsService) {
+        }],
+        cards: ['lists', 'cardsService', function(lists, cardsService) {
           return cardsService.getCardsFromLists(lists);
-        }
+        }]
       }
     })
-})
+}])
