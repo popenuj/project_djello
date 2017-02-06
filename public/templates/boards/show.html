@@ -1,11 +1,35 @@
-<h2>{{ board.title }}</h2>
 <div class="row">
- <div class="col-xs-4 panel panel-default" ng-repeat="list in lists">
-    <h4 class='panel-heading'>{{ list.title }}</h4>
-    <div class="panel-body">
-      <ul>
-        <li ng-repeat='card in list.cards'>{{ card.name }}</li>
-      </ul>
+  <div class="col-xs-6">
+    <div ng-show="!editingTitle" ng-click="editingTitle = !editingTitle" class="pointable">
+      <h2>{{ board.title }}</h2>
     </div>
- </div>
+    <div ng-show="editingTitle">
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button">Update Title!</button>
+        </span>
+        <input type="text" class="form-control">
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4" ng-repeat="list in lists">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4>{{ list.title }}</h4>
+      </div>
+      <div class="panel-body">
+        <div ng-repeat='card in list.cards'>
+          <span class="pointable" data-toggle="modal" data-target="#{{card.list_id + card.id}}">
+            {{ card.name }}
+          </span>
+          <br>
+          <span>{{card.list_id + card.id}}</span>
+          <card></card>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

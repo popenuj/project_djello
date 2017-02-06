@@ -3,7 +3,9 @@ Djello.controller('BoardsShowCtrl', ['$scope', 'board', 'lists', 'cards', 'lists
   $scope.board = board;
   $scope.lists = lists;
   $scope.cards = cards;
+  $scope.editingTitle = false;
 
   listsService.addCardsToLists(cards);
+
 
 }])

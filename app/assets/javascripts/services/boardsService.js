@@ -24,7 +24,6 @@ Djello.factory('boardsService', ['Restangular', function(Restangular) {
   var createNewBoard = function(params) {
     return Restangular.all('boards').post({board: params}).then(function(response) {
         getBoards();
-        // TODO check for lag
         return response;
     });
   }
