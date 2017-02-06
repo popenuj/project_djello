@@ -1,0 +1,9 @@
+<div ng-click='edit($event)'>
+  <span ng-show='!active' ng-transclude></span>
+  <div class="input-group" ng-show='active'>
+    <input type="text" class="form-control" ng-model="newValue">
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-success" ng-click="save($event)">Update</button>
+    </span>
+  </div>
+</div>

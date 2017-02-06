@@ -27,6 +27,14 @@ class BoardsController < ApplicationController
     end
   end
 
+  def update
+    @board = Board.find(params[:id])
+    @board.update(board_params)
+    respond_to do |format|
+      format.json { render json: @board }
+    end
+  end
+
   private
 
   def board_params

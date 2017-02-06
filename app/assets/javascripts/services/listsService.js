@@ -15,8 +15,14 @@ Djello.factory('listsService', ['Restangular', function(Restangular) {
     return _lists
   }
 
+  var updateList = function(list) {
+      list.put();
+      getListsFromBoard(list.board_id);
+  }
+
   return {
     getListsFromBoard: getListsFromBoard,
-    addCardsToLists: addCardsToLists
+    addCardsToLists: addCardsToLists,
+    updateList: updateList
   }
 }])

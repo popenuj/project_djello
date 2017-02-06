@@ -3,14 +3,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">{{card.name}}</h4>
+        <h3 class="modal-title bg-faded" id="myModalLabel"><edit-field edit-model="card" edit-value="name">{{card.name}}</edit-field></h3>
+        <small class="pull-left">In list {{list.title }}</small>
+        <a class="pull-right pointable">Mark as complete</a>
       </div>
       <div class="modal-body">
-        ...
+        <edit-field edit-model="card" edit-value="description">{{card.description}}</edit-field>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

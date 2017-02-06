@@ -21,6 +21,7 @@ Djello.factory('boardsService', ['Restangular', function(Restangular) {
       });
   }
 
+  // Create
   var createNewBoard = function(params) {
     return Restangular.all('boards').post({board: params}).then(function(response) {
         getBoards();
@@ -28,10 +29,17 @@ Djello.factory('boardsService', ['Restangular', function(Restangular) {
     });
   }
 
+  // Update
+  var updateBoard = function(board) {
+    board.put();
+    getBoard(board.id);
+  }
+
   return {
     getBoard: getBoard,
     createNewBoard: createNewBoard,
-    getBoards: getBoards
+    getBoards: getBoards,
+    updateBoard: updateBoard
   }
 
 }])

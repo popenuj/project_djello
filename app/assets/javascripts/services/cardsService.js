@@ -18,8 +18,14 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
     })
   }
 
+  var updateCard = function(card) {
+      card.put();
+      getCardsFromLists(card.list_id);
+  }
+
   return {
-    getCardsFromLists: getCardsFromLists
+    getCardsFromLists: getCardsFromLists,
+    updateCard: updateCard
   }
 
 }])

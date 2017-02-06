@@ -22,6 +22,14 @@ class CardsController < ApplicationController
     end
   end
 
+  def update
+    @card = Card.find(params[:id])
+    @card.update(card_params)
+    respond_to do |format|
+      format.json { render json: @card }
+    end
+  end
+
   private
 
   def card_params
