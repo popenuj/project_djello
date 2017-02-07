@@ -1,10 +1,8 @@
-Djello.directive('newItem', ['$document', '$timeout', 'listsService', 'boardsService',
-  function($document, $timeout, listsService, boardsService) {
+Djello.directive('newList', ['$document', '$timeout', 'listsService',
+  function($document, $timeout, listsService) {
     var setup = function(scope, element) {
 
-      console.log(scope.modelthing)
-
-      scope.input = element[0].querySelector('input[type="text"].form-control')
+      scope.input = element[0].querySelector('input[type="text"].form-control.new-list')
 
       scope.edit = function() {
         scope.active = true;
@@ -24,20 +22,17 @@ Djello.directive('newItem', ['$document', '$timeout', 'listsService', 'boardsSer
 
       scope.save = function($event) {
         $event.stopPropagation();
-        if (scope.modelthing === "board") {
-          boardsService.createNewBoard(scope.newValue);
-        }
+        listsService.createList(scope.newListItem, scope.board.id);
+        scope.newListItem = {};
         scope.active = false;
       }
     }
 
     return {
-      scope: {
-        modelthing: '='
-      },
-      link: setup,
+      scope: true,
       transclude: true,
-      templateUrl: 'directives/newItem.html'
+      link: setup,
+      templateUrl: 'directives/newList.html'
     }
   }
 ])

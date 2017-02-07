@@ -1,10 +1,10 @@
 Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
-  var _cards = {};
+  var cards = {};
 
   var getCardsFromList = function(listId) {
     return Restangular.one('lists', listId).all('cards').getList().then(function(response) {
-      _cards[listId] = response;
-      return _cards;
+      cards[listId] = response;
+      return cards;
     });
   }
 
@@ -14,7 +14,7 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
       cardPromises.push(getCardsFromList(lists[i].id))
     }
     return $q.all(cardPromises).then(function() {
-      return _cards
+      return cards
     })
   }
 
@@ -23,9 +23,15 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
       getCardsFromLists(card.list_id);
   }
 
+  var createCard = function() {
+    console.log("fill me in!")
+  }
+
   return {
     getCardsFromLists: getCardsFromLists,
-    updateCard: updateCard
+    getCardsFromList: getCardsFromList,
+    updateCard: updateCard,
+    cards: cards
   }
 
 }])

@@ -1,13 +1,11 @@
 <div class="row">
   <div class="col-xs-6">
-    <h2><edit-field model="board">{{board.title}}</edit-field></h2>
-  </div>
-  <div class="col-xs-6">
-    <new-list-form class="pull-right"></new-list-form>
+    <h2><edit-field edit-model="board" edit-value="title">{{board.title}} {{board.id}}</edit-field></h2>
+    <a class="pointable"><new-list>Add a List</new-list></a>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-4" ng-repeat="list in lists | orderBy:'created_at'">
+  <div ng-repeat="list in lists">
     <list></list>
   </div>
 </div>

@@ -1,14 +1,15 @@
-Djello.factory('listsService', ['Restangular', function(Restangular) {
-  var _lists;
+Djello.factory('listsService', ['Restangular', 'cardsService', function(Restangular, cardsService) {
+  var _lists = [];
 
   var getListsFromBoard = function(boardId) {
     return Restangular.one('boards', boardId).all('lists').getList().then(function(response) {
-      _lists = response;
+      angular.copy(response, _lists);
       return _lists;
     });
   }
 
   var addCardsToLists = function(cards) {
+    console.log("adding cards to lists")
     for (var i = 0; i < _lists.length; i++) {
       _lists[i].cards = cards[_lists[i].id]
     }
@@ -20,9 +21,12 @@ Djello.factory('listsService', ['Restangular', function(Restangular) {
       getListsFromBoard(list.board_id);
   }
 
-  var createList = function(list, board_id) {
-    Restangular.all('lists').post({list: params}).then(function(response) {
-        getListsFromBoard();
+  var createList = function(listParams, boardId) {
+    Restangular.one('boards', boardId).all('lists').post({list: listParams}).then(function(response) {
+        _lists.push(response)
+        // getListsFromBoard(boardId);
+        // console.log("lists", _lists)
+        // addCardsToLists(cardsService.cards)
     });
   }
 

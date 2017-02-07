@@ -1,7 +1,7 @@
 Djello.directive('editField', ['$document', '$timeout',
   function($document, $timeout) {
     var setup = function(scope, element, attribute) {
-      scope.input = element[0].querySelector('input[type="text"].form-control')
+      scope.input = element[0].querySelector('input[type="text"].form-control.edit-field')
 
       scope.get = function(value) {
         return scope.editModel[scope.editValue];;

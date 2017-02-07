@@ -1,9 +1,10 @@
 <div ng-click='edit($event)'>
   <span ng-show='!active' ng-transclude></span>
   <div class="input-group" ng-show='active'>
-    <input type="text" class="form-control" ng-model="newValue">
+    <input type="text" class="form-control new-list" ng-model='newListItem.title'>
     <span class="input-group-btn">
-      <button type="button" class="btn btn-success" ng-click="save($event)">Update</button>
+      <button type="button" class="btn btn-primary" ng-click="save($event)">Add List</button>
     </span>
   </div>
+  <br>
 </div>
