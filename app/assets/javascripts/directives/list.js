@@ -9,9 +9,9 @@ Djello.directive('list', ['listsService', 'cardsService', function(listsService,
         scope.list.remove();
       }
 
-      scope.removeCard = function(listId, cardId) {
-        cardsService.removeCard(listId, cardId);
-        scope.card.remove();
+      scope.removeCard = function(listId, card) {
+        cardsService.removeCard(listId, card.id);
+        card.remove();
       }
     }
   }
