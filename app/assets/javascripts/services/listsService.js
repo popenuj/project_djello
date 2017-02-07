@@ -24,9 +24,6 @@ Djello.factory('listsService', ['Restangular', 'cardsService', function(Restangu
   var createList = function(listParams, boardId) {
     Restangular.one('boards', boardId).all('lists').post({list: listParams}).then(function(response) {
         _lists.push(response)
-        // getListsFromBoard(boardId);
-        // console.log("lists", _lists)
-        // addCardsToLists(cardsService.cards)
     });
   }
 

@@ -38,7 +38,7 @@ List.all.each do |list|
     list.cards.create(
       name: Faker::GameOfThrones.character,
       description: Faker::StarWars.wookie_sentence,
-      priority: Faker::Number.between(1, 5)
+      priority: Faker::Number.between(1, 3)
     )
   end
 end

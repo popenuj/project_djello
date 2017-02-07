@@ -4,15 +4,18 @@
       <edit-field edit-model="list" edit-value="title">{{list.title}}</edit-field>
     </div>
     <div class="panel-body">
-      <div ng-repeat='card in list.cards'>
+      <div ng-repeat='card in list.cards | orderBy:"priority"'>
         <span class="pointable" data-toggle="modal" data-target="#{{card.list_id + card.id}}">
-          <strong>{{ card.name }}</strong><br>
+          <strong>{{ card.name }}</strong><strong class="pull-right red-text">{{ card.priority }}</strong><br>
           <small>{{ card.description | limitTo:40 }}<span ng-if="card.description.length > 40">...</span></small>
         </span>
         <hr>
         <card></card>
       </div>
-      <a class="pointable">add card</a>
+      <span class="pointable" data-toggle="modal" data-target="#new">
+        <a>New Card</a>
+      </span>
+      <new-card></new-card>
     </div>
   </div>
 </div>

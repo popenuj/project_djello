@@ -1,0 +1,34 @@
+<div class="modal fade" id="new" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <div class="form-group">
+            <label for="card-name">Title</label>
+            <input type="text" class="form-control" id="card-name" ng-model="newCardItem.name">
+          </div>
+          <small> To list {{list.title }}</small>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="card-description">Description</label>
+            <textarea class="form-control" id="card-description" ng-model="newCardItem.description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="card-priority">Priority</label>
+            <select ng-model="newCardItem.priority" class="form-control" id="card-priority">
+              <option value="1">1 (high)</option>
+              <option value="2">2 (medium)</option>
+              <option value="3">3 (low)</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+          <button class="btn btn-primary" ng-click="createCard(newCardItem)" data-dismiss="modal">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

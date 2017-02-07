@@ -23,14 +23,17 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
       getCardsFromLists(card.list_id);
   }
 
-  var createCard = function() {
-    console.log("fill me in!")
+  var createCard = function(cardParams, listId) {
+    Restangular.one('lists', listId).all('cards').post({card: cardParams}).then(function(response) {
+        cards[listId].push(response)
+    });
   }
 
   return {
     getCardsFromLists: getCardsFromLists,
     getCardsFromList: getCardsFromList,
     updateCard: updateCard,
+    createCard: createCard,
     cards: cards
   }
 

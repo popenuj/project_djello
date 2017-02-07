@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170203233427) do
     t.integer  "list_id"
     t.string   "name"
     t.text     "description"
-    t.integer  "priority"
+    t.string  "priority"
     t.date     "completed"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
