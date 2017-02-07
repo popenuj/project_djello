@@ -6,5 +6,8 @@ Djello.controller('BoardsShowCtrl', ['$scope', 'board', 'lists', 'cards', 'lists
 
   listsService.addCardsToLists(cards);
 
+  $scope.deleteBoard = function() {
+    $scope.board.remove();
+  }
 
 }])

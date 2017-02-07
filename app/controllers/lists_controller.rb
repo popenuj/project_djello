@@ -30,6 +30,15 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy
+      respond_to do |format|
+        format.json { render json: @list }
+      end
+    end
+  end
+
   private
 
   def list_params

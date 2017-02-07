@@ -29,11 +29,20 @@ Djello.factory('cardsService', ['Restangular', '$q', function(Restangular, $q) {
     });
   }
 
+  var removeCard = function(listId, cardId) {
+    for (var i = 0; i < cards[listId].length; i++) {
+      if (cards[listId][i].id === cardId) {
+        cards[listId].splice(i, 1)
+      }
+    }
+  }
+
   return {
     getCardsFromLists: getCardsFromLists,
     getCardsFromList: getCardsFromList,
     updateCard: updateCard,
     createCard: createCard,
+    removeCard: removeCard,
     cards: cards
   }
 

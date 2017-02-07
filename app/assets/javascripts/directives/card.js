@@ -13,6 +13,7 @@ Djello.directive('card', function() {
         scope.card.completed = null;
         scope.card.put()
       };
+
     }
   }
 })

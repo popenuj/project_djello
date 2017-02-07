@@ -26,6 +26,11 @@
               <span ng-if="card.description.length > 40">...</span>
             </small>
         </span>
+        <a
+          class="pull-right pointable"
+          ng-click="removeCard(list.id, card.id)">
+          Delete
+        </a>
         <hr>
         <card></card>
       </div>
@@ -36,6 +41,9 @@
         <a>New Card</a>
       </span>
       <new-card></new-card>
+    </div>
+    <div class="panel-footer">
+      <small class="pointable" ng-click="deleteList()">Delete List</small>
     </div>
   </div>
 </div>
