@@ -20,9 +20,16 @@ Djello.factory('listsService', ['Restangular', function(Restangular) {
       getListsFromBoard(list.board_id);
   }
 
+  var createList = function(list, board_id) {
+    Restangular.all('lists').post({list: params}).then(function(response) {
+        getListsFromBoard();
+    });
+  }
+
   return {
     getListsFromBoard: getListsFromBoard,
     addCardsToLists: addCardsToLists,
+    createList: createList,
     updateList: updateList
   }
 }])

@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <edit-field edit-model="list" edit-value="title">{{list.title}}</edit-field>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat='card in list.cards'>
+      <span class="pointable" data-toggle="modal" data-target="#{{card.list_id + card.id}}">
+        <strong>{{ card.name }}</strong><br>
+        <small>{{ card.description | limitTo:40 }}<span ng-if="card.description.length > 40">...</span></small>
+      </span>
+      <hr>
+      <card></card>
+    </div>
+  </div>
+</div>

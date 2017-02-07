@@ -1,24 +1,13 @@
 <div class="row">
   <div class="col-xs-6">
-    <edit-board-title></edit-board-title>
+    <h2><edit-field model="board">{{board.title}}</edit-field></h2>
+  </div>
+  <div class="col-xs-6">
+    <new-list-form class="pull-right"></new-list-form>
   </div>
 </div>
 <div class="row">
-  <div class="col-xs-6 col-md-4" ng-repeat="list in lists">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <edit-field edit-model="list" edit-value="title">{{list.title}}</edit-field>
-      </div>
-      <div class="panel-body">
-        <div ng-repeat='card in list.cards'>
-          <span class="pointable" data-toggle="modal" data-target="#{{card.list_id + card.id}}">
-            <strong>{{ card.name }}</strong><br>
-            <small>{{ card.description | limitTo:40 }}<span ng-if="card.description.length > 40">...</span></small>
-          </span>
-          <hr>
-          <card></card>
-        </div>
-      </div>
-    </div>
+  <div class="col-xs-6 col-md-4" ng-repeat="list in lists | orderBy:'created_at'">
+    <list></list>
   </div>
 </div>

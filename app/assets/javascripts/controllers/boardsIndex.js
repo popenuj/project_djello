@@ -1,5 +1,6 @@
 Djello.controller('BoardsIndexCtrl', ['$scope', 'boards', 'boardsService',
   function($scope, boards, boardsService) {
+
     $scope.boards = boards
 
     $scope.createNewBoard = function() {
