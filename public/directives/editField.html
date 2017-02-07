@@ -2,8 +2,16 @@
   <span ng-show='!active' ng-transclude></span>
   <div class="input-group" ng-show='active'>
     <span class="input-group-btn">
-      <button type="button" class="btn btn-success" ng-click="save($event)">Update</button>
+      <button
+        type="button"
+        class="btn btn-success"
+        ng-click="save($event)">
+        Update
+      </button>
     </span>
-    <input type="text" class="form-control edit-field" ng-model="newValue">
+    <input 
+      type="text"
+      class="form-control edit-field"
+      ng-model="newValue">
   </div>
 </div>

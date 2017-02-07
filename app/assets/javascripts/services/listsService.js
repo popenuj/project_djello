@@ -9,7 +9,6 @@ Djello.factory('listsService', ['Restangular', 'cardsService', function(Restangu
   }
 
   var addCardsToLists = function(cards) {
-    console.log("adding cards to lists")
     for (var i = 0; i < _lists.length; i++) {
       _lists[i].cards = cards[_lists[i].id]
     }

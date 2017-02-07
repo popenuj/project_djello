@@ -1,18 +1,38 @@
 <div class="col-xs-6 col-md-4">
   <div class="panel panel-primary">
     <div class="panel-heading">
-      <edit-field edit-model="list" edit-value="title">{{list.title}}</edit-field>
+      <h4>
+        <edit-field
+          edit-model="list"
+          edit-value="title">
+          {{list.title}}
+        </edit-field>
+      </h4>
     </div>
     <div class="panel-body">
       <div ng-repeat='card in list.cards | orderBy:"priority"'>
-        <span class="pointable" data-toggle="modal" data-target="#{{card.list_id + card.id}}">
-          <strong>{{ card.name }}</strong><strong class="pull-right red-text">{{ card.priority }}</strong><br>
-          <small>{{ card.description | limitTo:40 }}<span ng-if="card.description.length > 40">...</span></small>
+        <span
+          class="pointable"
+          data-toggle="modal"
+          data-target="#{{card.list_id + card.id}}">
+            <strong>
+              {{ card.name }}
+            </strong>
+            <strong class="pull-right red-text">
+              {{ card.priority }}
+            </strong><br>
+            <small>
+              {{ card.description | limitTo:40 }}
+              <span ng-if="card.description.length > 40">...</span>
+            </small>
         </span>
         <hr>
         <card></card>
       </div>
-      <span class="pointable" data-toggle="modal" data-target="#new">
+      <span
+        class="pointable"
+        data-toggle="modal"
+        data-target="#{{ list.id }}">
         <a>New Card</a>
       </span>
       <new-card></new-card>
